@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>名前</th>
+            <th>password</th>
+            <th>更新</th>
+            <th>削除</th>
+        </tr>
+        <% users.forEach(function (value) { %>
+        <tr>
+            <td><%= value.name %></td>
+            <td><%= value.password %></td>
+            <td><a href="/edit/<%= value.id %>">更新</a></td>
+            <td><a href="/delete/<%= value.id %>">削除</a></td>
+        </tr>
+        <% }); %>
+    </table>
+
+<br><br><th>データの追加</th>
+    <form action="/" method="POST">
+        name <input type="text" name="name"><br>
+        password <input type="text" name="password"><br>
+        <button type="submit">追加</button>
+    </form>
+
+</body>
+</html>
